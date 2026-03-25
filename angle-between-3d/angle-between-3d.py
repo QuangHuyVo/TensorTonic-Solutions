@@ -1,0 +1,16 @@
+import numpy as np
+
+def angle_between_3d(v, w):
+    v = np.asarray(v, dtype=float).reshape(-1)
+    w = np.asarray(w, dtype=float).reshape(-1)
+
+    norm_v = np.linalg.norm(v)
+    norm_w = np.linalg.norm(w)
+
+    if norm_v == 0 or norm_w == 0:
+        return np.nan
+
+    cos_theta = np.dot(v, w) / (norm_v * norm_w)
+    cos_theta = np.clip(cos_theta, -1, 1)
+
+    return float(np.arccos(cos_theta))
