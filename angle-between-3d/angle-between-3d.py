@@ -13,4 +13,4 @@ def angle_between_3d(v, w):
     cos_theta = np.dot(v, w) / (norm_v * norm_w)
     cos_theta = np.clip(cos_theta, -1, 1)
 
-    return float(np.arccos(cos_theta))
+    return np.arccos(cos_theta)
